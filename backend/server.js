@@ -20,4 +20,4 @@ app.listen(process.env.PORT, () => {
 })
 
 
-app.use(notRoute)
+app.use("/api/notlar",notRoute)
