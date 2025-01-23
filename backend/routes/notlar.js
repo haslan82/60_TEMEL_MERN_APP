@@ -3,7 +3,7 @@
 
 const express = require('express');
 
-const { notOlustur, notlarGetir, notGetir } = require('../controllers/notController');
+const { notOlustur, notlarGetir, notGetir, notSil, notGuncelle } = require('../controllers/notController');
 
 
 
@@ -21,16 +21,11 @@ router.post("/",notOlustur)
 
 
 //? Sil
-router.delete("/:id",(req,res) => {
-    res.json({message:`${req.params.id} idli notu sil`})
-    
-})
+router.delete("/:id",notSil)
 
 
 //? Güncelle
-router.patch("/:id",(req,res) => {
-    res.json({message:`${req.params.id} idli notu güncelle`})
-})
+router.patch("/:id",notGuncelle)
 
 
 
