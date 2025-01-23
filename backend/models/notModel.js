@@ -1,8 +1,8 @@
 
 const mongoose = require('mongoose');
 
-const Schema=mongoose.Schema;
-const notSchema=new Schema({
+const Sema=mongoose.Schema;
+const notSema=Sema({
     baslik:{
         type:String,
         required:true
@@ -15,4 +15,4 @@ const notSchema=new Schema({
     timestamps:true,
 });
 
-module.exports=mongoose.model('Not',notSchema);
+module.exports=mongoose.model('Not',notSema);

@@ -2,32 +2,23 @@
 
 
 const express = require('express');
-const notModel = require('../models/notModel');
+
+const { notOlustur, notlarGetir, notGetir } = require('../controllers/notController');
 
 
 
 const router = express.Router();
 
 
-router.get("/",(req,res) => {
-    res.json({message:"Bütün Notlar"})
-})
+router.get("/",notlarGetir)
 //? Listele
-router.get("/:id",(req,res) => {
-    res.json({message:`${req.params.id} idli notu getir`})
-})
+router.get("/:id",notGetir)
 
 //? Ekle
-router.post("/",async(req,res) => {
-    //res.json({message:"Yeni Not Ekler misin?"})
-    const{baslik,aciklama}=req.body
-    try {
-        const not =await notModel.create({baslik,aciklama})
-        res.status(200).json(not)
-    } catch (error) {
-        res.status(400).json({hata:error.message})
-    }
-})
+
+router.post("/",notOlustur)
+
+
 
 //? Sil
 router.delete("/:id",(req,res) => {
@@ -40,6 +31,10 @@ router.delete("/:id",(req,res) => {
 router.patch("/:id",(req,res) => {
     res.json({message:`${req.params.id} idli notu güncelle`})
 })
+
+
+
+
 
 
 module.exports = router
