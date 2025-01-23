@@ -2,7 +2,7 @@
 
 
 const express = require('express');
-
+const notModel = require('../models/notModel');
 
 
 
@@ -18,13 +18,21 @@ router.get("/:id",(req,res) => {
 })
 
 //? Ekle
-router.post("/",(req,res) => {
-    res.json({message:"Yeni Not Ekle"})
+router.post("/",async(req,res) => {
+    //res.json({message:"Yeni Not Ekler misin?"})
+    const{baslik,aciklama}=req.body
+    try {
+        const not =await notModel.create({baslik,aciklama})
+        res.status(200).json(not)
+    } catch (error) {
+        res.status(400).json({hata:error.message})
+    }
 })
 
 //? Sil
 router.delete("/:id",(req,res) => {
     res.json({message:`${req.params.id} idli notu sil`})
+    
 })
 
 

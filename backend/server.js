@@ -1,4 +1,8 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+
+
 
 require('dotenv').config()
 
@@ -15,9 +19,23 @@ app.use((req,res,next)=>{
     next();
 })
 app.use(express.json())
-app.listen(process.env.PORT, () => {
+/* app.listen(process.env.PORT, () => {
     console.log(`${process.env.PORT} portunda çalışıyor`);
+}) */
+
+mongoose.connect(process.env.MONGO_URI)
+.then(()=>{
+    console.log("Mongodb bağlandı");
+    app.listen(process.env.PORT, () => {
+        console.log(`${process.env.PORT} portunda çalışıyor`);
+    })
 })
+.catch((err)=>{
+    console.log(err);
+})
+
+
+
 
 
 app.use("/api/notlar",notRoute)
