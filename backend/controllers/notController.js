@@ -83,4 +83,5 @@ const notGuncelle=async(req,res)=>{
     }
 }
 
+
 module.exports={notOlustur, notlarGetir,notGetir,notSil,notGuncelle}
