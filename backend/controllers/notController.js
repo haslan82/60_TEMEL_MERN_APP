@@ -1,8 +1,6 @@
 const NotModel=require('../models/notModel');
 const mongoose = require('mongoose');
 
-
-
 const notOlustur=async(req,res)=>{
     const {baslik,aciklama}=req.body
 
