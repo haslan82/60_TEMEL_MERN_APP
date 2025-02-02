@@ -15,4 +15,5 @@ const notSema=Sema({
     timestamps:true,
 });
 
+
 module.exports=mongoose.model('Not',notSema);
