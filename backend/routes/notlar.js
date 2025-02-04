@@ -5,8 +5,6 @@ const express = require('express');
 
 const { notOlustur, notlarGetir, notGetir, notSil, notGuncelle } = require('../controllers/notController');
 
-
-
 const router = express.Router();
 
 
