@@ -8,8 +8,6 @@ require('dotenv').config()
 
 const notRoute = require('./routes/notlar')
 
-
-
 const app=express();
 
 app.use((req,res,next)=>{
