@@ -28,6 +28,4 @@ mongoose.connect(process.env.MONGO_URI)
     console.log(err);
 })
 
-
-
 app.use("/api/notlar",notRoute)
